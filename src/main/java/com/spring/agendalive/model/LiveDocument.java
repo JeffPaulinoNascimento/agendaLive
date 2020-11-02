@@ -1,5 +1,7 @@
 package com.spring.agendalive.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -7,7 +9,9 @@ import java.time.LocalDateTime;
 public class LiveDocument {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+//    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
     @Column(name = "ID")
     private Long id;
 
